@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"  th:href="@{styles/standard.css}">
+    <link rel="stylesheet"  th:href="@{styles/register.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>MS: Register</title>
+</head>
+<body>
+    <header>
+        <div class="title_home_redirect">
+            <a th:href="@{/}"><h1>Media Shelf</h1></a>
+        </div>
+
+
+        <div class="search_zone">
+            <p>SEARCH</p>
+        </div>
+
+        <div class="menu_redirect">
+            <!-- adicionar textos para descrever o que cada botão faz space-around -->
+            <a th:href="@{/register}">Register</a>
+            <a th:href="@{/lists}">Lists</a>
+            <a th:href="@{/statistics}">Statistics</a>
+        </div>
+
+    </header>
+    <main>
+        <section class="side_bar"></section>
+        <div class="central_zone">
+            <h3>Register</h3>
+
+            <div class="menu_form">
+                <input type="radio" class="input_option" id="option_book" name="option_media" value="form_book" checked>
+                <label class="button button_menu_form" for="option_book">Book</label>
+
+                <input type="radio" class="input_option" id="option_movie" name="option_media" value="form_movie">
+                <label class="button button_menu_form" for="option_movie">Movie</label>
+
+                <input type="radio" class="input_option" id="option_musics" name="option_media" value="form_music">
+                <label class="button button_menu_form" for="option_musics">Music</label>
+
+                <input type="radio" class="input_option" id="option_comics" name="option_media" value="form_comics">
+                <label class="button button_menu_form" for="option_comics">Comics</label>
+
+                <input type="radio" class="input_option" id="option_series" name="option_media" value="form_series">
+                <label class="button button_menu_form" for="option_series">Series</label>
+
+                <input type="radio" class="input_option" id="option_game" name="option_media" value="form_game">
+                <label class="button button_menu_form" for="option_game">Game</label>
+            </div>
+
+
+            <div class="form_register" id="form_inputs">
+
+                <!-- BOOK -->
+                <form class="form_inputs" id="form_book" name="form_book" action="/register/book-register" method="post">
+                    <div class="form_wrap_zone">
+                        <div class="label_input">
+                            <label for="book_title">Title: </label>
+                            <input class="input_form" id="book_title" name="book_title">
+                        </div>
+                        <div class="label_input">
+                            <label for="book_authors">Authors: </label>
+                            <input class="input_form" id="book_authors" name="book_authors">
+                        </div>
+                        <div class="label_input">
+                            <label for="book_gender">Gender: </label>
+                            <input class="input_form" id="book_gender" name="book_genderFields">
+                        </div>
+                        <div class="label_input">
+                            <label for="book_publishers">Publishers: </label>
+                            <input class="input_form" id="book_publishers" name="book_publishers">
+                        </div>
+                        <div class="label_input">
+                            <label for="book_year">Year: </label>
+                            <input class="input_form" id="book_year" name="book_year">
+                        </div>
+                        <div class="label_input">
+                            <label for="book_pages">Pages: </label>
+                            <input class="input_form" id="book_pages" name="book_pages">
+                        </div>
+
+
+                        <!--
+                        <div class="label_input">
+                            <label for="publication_year">Publication Year: </label>
+                            <input class="input_form" id="book_publication_year" name="book_publication_year">
+                        </div>
+                        <div class="label_input">
+                            <label for="language">Language: </label>
+                            <input class="input_form" id="book_language" name="book_language">
+                        </div>
+                        <div class="label_input">
+                            <label for="organizers">Organizer(s): </label>
+                            <input class="input_form" id="book_organizers" name="book_organizers">
+                        </div>
+                        -->
+                    </div>
+
+                    <div class="consumption_control">
+                        <input type="radio" class="input_control" id="book_finished" name="book_consumption" value="form_finished">
+                        <label class="button button_menu_form" for="book_finished">Finished</label>
+
+                        <input type="radio" class="input_control" id="book_in_progress" name="book_consumption" value="form_in_progress">
+                        <label class="button button_menu_form" for="book_in_progress">In Progress</label>
+
+                        <input type="radio" class="input_control" id="book_priority" name="book_consumption" value="form_priority">
+                        <label class="button button_menu_form" for="book_priority">Priority</label>
+
+                        <input type="radio" class="input_control" id="book_pretense" name="book_consumption" value="form_pretense">
+                        <label class="button button_menu_form" for="book_pretense">Pretense</label>
+                    </div>
+
+                    <input class="button button_input_register" type="submit" value="Register">
+                </form>
+
+
+                <!-- MOVIE -->
+                <form class="form_inputs hidden" id="form_movie" name="form_movie" action="/register/movie-register" method="post">
+                    <div class="form_wrap_zone">
+                        <div class="label_input">
+                            <label for="movie_title">Title: </label>
+                            <input class="input_form" id="movie_title" name="movie_title">
+                        </div>
+                        <div class="label_input">
+                            <label for="movie_director">Director: </label>
+                            <input class="input_form" id="movie_director" name="movie_director">
+                        </div>
+                        <div class="label_input">
+                            <label for="movie_screenplay">Screenplay: </label>
+                            <input class="input_form" id="movie_screenplay" name="movie_screenplay">
+                        </div>
+                        <div class="label_input">
+                            <label for="movie_photography">Photography: </label>
+                            <input class="input_form" id="movie_photography" name="movie_photography">
+                        </div>
+                        <div class="label_input">
+                            <label for="movie_gender">Gender: </label>
+                            <input class="input_form" id="movie_gender" name="movie_gender">
+                        </div>
+                        <div class="label_input">
+                            <label for="movie_year">Year: </label>
+                            <input class="input_form" id="movie_year" name="movie_year">
+                        </div>
+                        <div class="label_input">
+                            <label for="movie_time">Time: </label>
+                            <input class="input_form" id="movie_time" name="movie_time">
+                        </div>
+                    </div>
+
+                    <div class="consumption_control">
+                        <input type="radio" class="input_control" id="movie_finished" name="consumption" value="form_finished">
+                        <label class="button button_menu_form" for="movie_finished">Finished</label>
+
+                        <input type="radio" class="input_control" id="movie_in_progress" name="consumption" value="form_in_progress">
+                        <label class="button button_menu_form" for="movie_in_progress">In Progress</label>
+
+                        <input type="radio" class="input_control" id="movie_priority" name="consumption" value="form_priority">
+                        <label class="button button_menu_form" for="movie_priority">Priority</label>
+
+                        <input type="radio" class="input_control" id="movie_pretense" name="consumption" value="form_pretense">
+                        <label class="button button_menu_form" for="movie_pretense">Pretense</label>
+                    </div>
+
+                    <input class="button button_input_register" type="submit" value="Register">
+                </form>
+
+
+                <!-- MUSIC -->
+                <form class="form_inputs hidden" id="form_music" name="form_music" action="/register/music-register" method="post">
+                    <div class="form_wrap_zone">
+                        <div class="label_input">
+                            <label for="music_title">Title: </label>
+                            <input class="input_form" id="music_title" name="music_title">
+                        </div>
+                        <div class="label_input">
+                            <label for="music_composer">Composer: </label>
+                            <input class="input_form" id="music_composer" name="music_composer">
+                        </div>
+                        <div class="label_input">
+                            <label for="music_interpreter">Interpreter: </label>
+                            <input class="input_form" id="music_interpreter" name="music_interpreter">
+                        </div>
+                        <div class="label_input">
+                            <label for="music_gender">Gender: </label>
+                            <input class="input_form" id="music_gender" name="music_gender">
+                        </div>
+                        <div class="label_input">
+                            <label for="music_time">Time: </label>
+                            <input class="input_form" id="music_time" name="music_time">
+                        </div>
+                    </div>
+
+                    <div class="consumption_control">
+                        <input type="radio" class="input_control" id="music_finished" name="consumption" value="form_finished">
+                        <label class="button button_menu_form" for="music_finished">Finished</label>
+
+                        <input type="radio" class="input_control" id="music_in_progress" name="consumption" value="form_in_progress">
+                        <label class="button button_menu_form" for="music_in_progress">In Progress</label>
+
+                        <input type="radio" class="input_control" id="music_priority" name="consumption" value="form_priority">
+                        <label class="button button_menu_form" for="music_priority">Priority</label>
+
+                        <input type="radio" class="input_control" id="music_pretense" name="consumption" value="form_pretense">
+                        <label class="button button_menu_form" for="music_pretense">Pretense</label>
+                    </div>
+
+                    <input class="button button_input_register" type="submit" value="Register">
+                </form>
+
+
+                <!-- GAME -->
+                <form class="form_inputs hidden" id="form_game" name="form_game" action="/register/game-register" method="post">
+                    <div class="form_wrap_zone">
+                        <div class="label_input">
+                            <label for="game_title">Title: </label>
+                            <input class="input_form" id="game_title" name="game_title">
+                        </div>
+                        <div class="label_input">
+                            <label for="game_gender">Gender: </label>
+                            <input class="input_form" id="game_gender" name="game_gender">
+                        </div>
+                        <div class="label_input">
+                            <label for="game_year">Year: </label>
+                            <input class="input_form" id="game_year" name="game_year">
+                        </div>
+                        <div class="label_input">
+                            <label for="game_studio">Studio: </label>
+                            <input class="input_form" id="game_studio" name="game_studio">
+                        </div>
+                    </div>
+
+                    <div class="consumption_control">
+                        <input type="radio" class="input_control" id="game_finished" name="consumption" value="form_finished">
+                        <label class="button button_menu_form" for="game_finished">Finished</label>
+
+                        <input type="radio" class="input_control" id="game_in_progress" name="consumption" value="form_in_progress">
+                        <label class="button button_menu_form" for="game_in_progress">In Progress</label>
+
+                        <input type="radio" class="input_control" id="game_priority" name="consumption" value="form_priority">
+                        <label class="button button_menu_form" for="game_priority">Priority</label>
+
+                        <input type="radio" class="input_control" id="game_pretense" name="consumption" value="form_pretense">
+                        <label class="button button_menu_form" for="game_pretense">Pretense</label>
+                    </div>
+
+                    <input class="button button_input_register" type="submit" value="Register">
+                </form>
+
+
+                <!-- COMIC -->
+                <form class="form_inputs hidden" id="form_comics" name="form_comic" action="/register/comic-register" method="post">
+                    <div class="form_wrap_zone">
+                        <div class="label_input">
+                            <label for="comics_title">Title: </label>
+                            <input class="input_form" id="comics_title" name="comics_title">
+                        </div>
+                        <div class="label_input">
+                            <label for="comics_illustrator">Illustrator: </label>
+                            <input class="input_form" id="comics_illustrator" name="comics_illustrator">
+                        </div>
+                        <div class="label_input">
+                            <label for="comics_writer">Writer: </label>
+                            <input class="input_form" id="comics_writer" name="comics_writer">
+                        </div>
+                        <div class="label_input">
+                            <label for="comics_gender">Gender: </label>
+                            <input class="input_form" id="comics_gender" name="comics_gender">
+                        </div>
+                        <div class="label_input">
+                            <label for="comics_year">Year: </label>
+                            <input class="input_form" id="comics_year" name="comics_year">
+                        </div>
+                        <div class="label_input">
+                            <label for="comics_pages">Pages: </label>
+                            <input class="input_form" id="comics_pages" name="comics_pages">
+                        </div>
+                    </div>
+
+                    <div class="consumption_control">
+                        <input type="radio" class="input_control" id="comics_finished" name="consumption" value="form_finished">
+                        <label class="button button_menu_form" for="comics_finished">Finished</label>
+
+                        <input type="radio" class="input_control" id="comics_in_progress" name="consumption" value="form_in_progress">
+                        <label class="button button_menu_form" for="comics_in_progress">In Progress</label>
+
+                        <input type="radio" class="input_control" id="comics_priority" name="consumption" value="form_priority">
+                        <label class="button button_menu_form" for="comics_priority">Priority</label>
+
+                        <input type="radio" class="input_control" id="comics_pretense" name="consumption" value="form_pretense">
+                        <label class="button button_menu_form" for="comics_pretense">Pretense</label>
+                    </div>
+
+                    <input class="button button_input_register" type="submit" value="Register">
+                </form>
+
+
+                <!-- SERIES -->
+                <form class="form_inputs hidden" id="form_series" name="form_series" action="/register/series-register" method="post">
+                    <div class="form_wrap_zone">
+                        <div class="label_input">
+                            <label for="series_title">Title: </label>
+                            <input class="input_form" id="series_title" name="series_title">
+                        </div>
+                        <div class="label_input">
+                            <label for="series_gender">Gender: </label>
+                            <input class="input_form" id="series_gender" name="series_gender">
+                        </div>
+                        <div class="label_input">
+                            <label for="series_year">Year: </label>
+                            <input class="input_form" id="series_year" name="series_year">
+                        </div>
+                        <div class="label_input">
+                            <label for="series_season">Season: </label>
+                            <input class="input_form" id="series_season" name="series_season">
+                        </div>
+                    </div>
+
+                    <div class="consumption_control">
+                        <input type="radio" class="input_control" id="series_finished" name="consumption" value="form_finished">
+                        <label class="button button_menu_form" for="series_finished">Finished</label>
+
+                        <input type="radio" class="input_control" id="series_in_progress" name="consumption" value="form_in_progress">
+                        <label class="button button_menu_form" for="series_in_progress">In Progress</label>
+
+                        <input type="radio" class="input_control" id="series_priority" name="consumption" value="form_priority">
+                        <label class="button button_menu_form" for="series_priority">Priority</label>
+
+                        <input type="radio" class="input_control" id="series_pretense" name="consumption" value="form_pretense">
+                        <label class="button button_menu_form" for="series_pretense">Pretense</label>
+                    </div>
+
+                    <input class="button button_input_register" type="submit" value="Register">
+                </form>
+
+
+            </div>
+        </div>
+
+        <section class="side_bar"></section>
+    </main>
+
+    <footer>
+        <div class="footer_links">
+            <a target="_blank" class="footer_button" href="https://www.linkedin.com/in/guilherme-pguimar%C3%A3es/">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+
+            </a>
+
+            <a target="_blank" class="footer_button" href="https://github.com/guilherme-pg">
+                <svg class="aaa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path
+                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+            </a>
+        </div>
+        <div>
+            <p>All rights reserved TM ©</p>
+        </div>
+    </footer>
+
+    <script src="/js/register.js"></script>
+</body>
+</html>

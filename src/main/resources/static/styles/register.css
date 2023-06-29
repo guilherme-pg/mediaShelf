@@ -1,0 +1,32 @@
+
+.form_wrap_zone {
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+
+}
+
+
+/* CONSUMPTION STATUS CONTROL */
+.consumption_control {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+.consumption_control input {
+    display: none;
+}
+.consumption_control label {
+    padding: 10px 20px 10px 20px;
+    margin: 0 10px 0 10px;
+}
+.consumption_control input:checked + label {
+    background-color: rgba(19, 61, 33, 0.8);
+}
+
+
+/* BUTTON - FORM REGISTER */
+.button_input_register {
+    margin: 25px 0 25px 0;
+    width: 20%;
+}
