@@ -1,12 +1,13 @@
 package com.gvmmpg.mediashelf.controller;
 
 import com.gvmmpg.mediashelf.domain.book.Book;
-import com.gvmmpg.mediashelf.domain.comic.Comic;
+import com.gvmmpg.mediashelf.domain.book.BookRepository;
+import com.gvmmpg.mediashelf.domain.comics.Comics;
 import com.gvmmpg.mediashelf.domain.game.Game;
 import com.gvmmpg.mediashelf.domain.movie.Movie;
 import com.gvmmpg.mediashelf.domain.movie.MovieRegister;
 import com.gvmmpg.mediashelf.domain.book.BookRegister;
-import com.gvmmpg.mediashelf.domain.comic.ComicRegister;
+import com.gvmmpg.mediashelf.domain.comics.ComicsRegister;
 import com.gvmmpg.mediashelf.domain.music.Music;
 import com.gvmmpg.mediashelf.domain.serie.Serie;
 import com.gvmmpg.mediashelf.domain.serie.SerieRegister;
@@ -15,14 +16,11 @@ import com.gvmmpg.mediashelf.domain.game.GameRegister;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 @RequestMapping("/register")
 public class RegisterController {
 
-    // private List<Book> books = new ArrayList<>();
+    private BookRepository repository;
 
     @GetMapping
     public String loadRegisterPage() {
@@ -31,11 +29,7 @@ public class RegisterController {
 
     @PostMapping("/book-register")
     public String registerBook(BookRegister data) {
-        System.out.println(data);
         var book = new Book(data);
-        System.out.println(book);
-        //  books.add(book);
-        // System.out.println(books);
         // ADD: alert to show media was inserted
         return "redirect:/register";
     }
@@ -50,9 +44,9 @@ public class RegisterController {
         var music = new Music(data);
         return "redirect:/";}
 
-    @PostMapping("/comic-register")
-    public String registerComic(ComicRegister data) {
-        var comic = new Comic(data);
+    @PostMapping("/comics-register")
+    public String registerComics(ComicsRegister data) {
+        var comic = new Comics(data);
         return "redirect:/";}
 
     @PostMapping("/serie-register")

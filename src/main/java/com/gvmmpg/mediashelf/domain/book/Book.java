@@ -1,8 +1,15 @@
 package com.gvmmpg.mediashelf.domain.book;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="books")
 public class Book {
 
     // Attributes
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String book_title;
     private String book_authors;
     private String book_genderFields;
@@ -36,6 +43,9 @@ public class Book {
     }
 
     // Getters
+    public Long getId() {
+        return id;
+    }
     public String getTitle() {
         return book_title;
     }

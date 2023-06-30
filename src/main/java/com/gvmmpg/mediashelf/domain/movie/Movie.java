@@ -1,6 +1,13 @@
 package com.gvmmpg.mediashelf.domain.movie;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="movies")
 public class Movie {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
     private String director;
     private String screenplay;
@@ -11,14 +18,14 @@ public class Movie {
     private String consumption;
 
     public Movie(MovieRegister data) {
-        this.title = data.title();
-        this.director = data.director();
-        this.screenplay = data.screenplay();
-        this.photography = data.photography();
-        this.gender = data.gender();
-        this.year = data.year();
-        this.time = data.time();
-        this.consumption = data.consumption();
+        this.title = data.movie_title();
+        this.director = data.movie_director();
+        this.screenplay = data.movie_screenplay();
+        this.photography = data.movie_photography();
+        this.gender = data.movie_gender();
+        this.year = data.movie_year();
+        this.time = data.movie_time();
+        this.consumption = data.movie_consumption();
     }
 
     @Override
@@ -35,6 +42,9 @@ public class Movie {
                 '}';
     }
 
+    public Long getId() {
+        return id;
+    }
     public String getTitle() {
         return title;
     }

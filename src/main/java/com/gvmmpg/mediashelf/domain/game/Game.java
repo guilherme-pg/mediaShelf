@@ -1,6 +1,13 @@
 package com.gvmmpg.mediashelf.domain.game;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="games")
 public class Game {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
     private String studio;
     private String gender;
@@ -12,7 +19,7 @@ public class Game {
         this.studio = data.game_studio();
         this.gender = data.game_gender();
         this.year = data.game_year();
-        this.consumption = data.consumption();
+        this.consumption = data.game_consumption();
     }
 
     @Override
@@ -26,18 +33,18 @@ public class Game {
                 '}';
     }
 
+    public Long getId() {
+        return id;
+    }
     public String getTitle() {
         return title;
     }
-
     public String getStudio() {
         return studio;
     }
-
     public String getGender() {
         return gender;
     }
-
     public Integer getYear() {
         return year;
     }

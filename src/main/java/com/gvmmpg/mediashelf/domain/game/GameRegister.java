@@ -4,5 +4,5 @@ public record GameRegister(String game_title,
                            String game_studio,
                            String game_gender,
                            Integer game_year,
-                           String consumption) {
+                           String game_consumption) {
 }

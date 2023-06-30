@@ -1,6 +1,13 @@
 package com.gvmmpg.mediashelf.domain.music;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="musics")
 public class Music {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
     private String composer;
     private String interpreter;
@@ -9,12 +16,12 @@ public class Music {
     private String consumption;
 
     public Music(MusicRegister data) {
-        this.title = data.title();
-        this.composer = data.composer();
-        this.interpreter = data.interpreter();
-        this.gender = data.gender();
-        this.time = data.time();
-        this.consumption = data.consumption();
+        this.title = data.music_title();
+        this.composer = data.music_composer();
+        this.interpreter = data.music_interpreter();
+        this.gender = data.music_gender();
+        this.time = data.music_time();
+        this.consumption = data.music_consumption();
     }
 
     @Override
@@ -29,6 +36,9 @@ public class Music {
                 '}';
     }
 
+    public Long getId() {
+        return id;
+    }
     public String getTitle() {
         return title;
     }

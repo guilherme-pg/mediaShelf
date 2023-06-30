@@ -1,6 +1,13 @@
 package com.gvmmpg.mediashelf.domain.serie;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="series")
 public class Serie {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
     private Integer season;
     private Integer year;
@@ -8,11 +15,11 @@ public class Serie {
     private String consumption;
 
     public Serie(SerieRegister data) {
-        this.title = data.title();
-        this.season = data.season();
-        this.gender = data.gender();
-        this.year = data.year();
-        this.consumption = data.consumption();
+        this.title = data.series_title();
+        this.season = data.series_season();
+        this.gender = data.series_gender();
+        this.year = data.series_year();
+        this.consumption = data.series_consumption();
     }
 
     @Override
@@ -26,6 +33,9 @@ public class Serie {
                 '}';
     }
 
+    public Long getId() {
+        return id;
+    }
     public String getTitle() {
         return title;
     }
