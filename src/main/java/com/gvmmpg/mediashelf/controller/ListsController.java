@@ -12,4 +12,6 @@ public class ListsController {
     public String loadListsPage() {
         return "main/lists";
     }
+
+
 }
